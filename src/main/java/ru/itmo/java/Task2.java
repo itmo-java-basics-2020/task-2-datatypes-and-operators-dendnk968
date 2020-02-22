@@ -11,21 +11,22 @@ public class Task2 {
      * - вывод 0.9
      */
     double getFractionalPart(double realNumber) {
-        return 0.0; //your code here
+
+        return realNumber - (int) realNumber;
     }
 
     /**
      * Дан символ, верните его код. Не используйте явное приведение типов и любые библиотечные функции
      */
     int charCode(char c) {
-        return 0; //your code here
+        return c;
     }
 
     /**
      * Даны 2 целых числа. Проверьте равны ли они
      */
     boolean testIfIntsEqual(Integer a, Integer b) {
-        return false; //your code here
+        return a.equals(b);
     }
 
     /**
@@ -38,35 +39,44 @@ public class Task2 {
      * @param inclusively входят ли границы в заданный даипазон
      */
     boolean numberInRange(Integer number, Integer leftBound, Integer rightBound, Boolean inclusively) {
-        return false; //your code here
+        if (number == null || leftBound == null || rightBound == null || inclusively == null)
+            return false;
+        return (leftBound < number && rightBound > number) ||
+                ( ((leftBound <= number && rightBound.equals(number))
+                        || (rightBound >= number && leftBound.equals(number))) && inclusively);
+    }
+
+
+    private boolean checkNumber(char c) {
+        return c >= '0' && c <= '9';
     }
 
     /**
      * Даны 3 символа. Определите является ли хотя бы один из них цифрой 1..9
      */
     boolean atLeastOneIsDigit(char c1, char c2, char c3) {
-        return false; //your code here
+        return checkNumber(c1) || checkNumber(c2) || checkNumber(c3);
     }
 
     /**
      * Даны два вещественных числа. Определите равны ли они
      */
     boolean areRealNumbersEqual(double a, double b) {
-        return false; //your code here
+        return a >= b - 1e-9 && a <= b + 1e-9; //your code here
     }
 
     /**
      * Дано трехзначное число 100 <= N <= 999. Найдите сумму его чисел.
      */
     int sumOfDigits(int n) {
-        return 0; //your code here
+        return n % 10 + n / 10 % 10 + n / 100;
     }
 
     /**
      * Дано натуральное число N <= 10000. Выведите следующее после N четное число. Например: N = 8, Result = 10
      */
     int nextEvenNumber(int n) {
-        return 0; //your code here
+        return n + 2 - n % 2;
     }
 
     /**
@@ -75,15 +85,19 @@ public class Task2 {
      * Выведите минимальное кол-во парт, которые нужно приобрести школе, при условии что каждый из классов сидит в
      * своем кабинете
      */
+    int getCountDesck(int count){
+        return count / 2 + count % 2;
+    }
+
     int schoolDesks(int num1, int num2, int num3) {
-        return 0; //your code here
+        return getCountDesck(num1) + getCountDesck(num2) + getCountDesck(num3);
     }
 
     /**
      * Дано натуральное число N >= 10. Выведите результат применения XOR к последним 2-м цифрам числа N
      */
     int xorDigits(int N) {
-        return 0; //your code here
+        return (N / 10 % 10) ^ (N % 10); //your code here
     }
 
 }
