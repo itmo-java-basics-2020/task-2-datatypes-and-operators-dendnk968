@@ -41,7 +41,9 @@ public class Task2 {
     boolean numberInRange(Integer number, Integer leftBound, Integer rightBound, Boolean inclusively) {
         if (number == null || leftBound == null || rightBound == null || inclusively == null)
             return false;
-        return (leftBound < number && rightBound > number) || ((rightBound.equals(number) || leftBound.equals(number)) && inclusively);
+        return (leftBound < number && rightBound > number) ||
+                ( ((leftBound <= number && rightBound.equals(number))
+                        || (rightBound >= number && leftBound.equals(number))) && inclusively);
     }
 
 

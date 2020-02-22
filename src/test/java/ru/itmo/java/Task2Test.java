@@ -85,7 +85,7 @@ public class Task2Test {
         Assert.assertFalse(inst.numberInRange(0, 0, null, true));
 
         // 2
-        Assert.assertTrue(inst.numberInRange(72344656, 72347655, 72344656, true));
+        Assert.assertFalse(inst.numberInRange(72344656, 72347655, 72344656, true));
         Assert.assertFalse(inst.numberInRange(13, 13, 13, false));
         Assert.assertTrue(inst.numberInRange(13, 13, 13, true));
         Assert.assertTrue(inst.numberInRange(11, 10, 100_000_000, true));
